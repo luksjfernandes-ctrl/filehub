@@ -2,9 +2,14 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
 
-const connectionString = process.env.DATABASE_URL;
-
 const prismaClientSingleton = () => {
+  const connectionString = process.env.DATABASE_URL;
+  
+  if (!connectionString) {
+    console.warn("DATABASE_URL is not set. Prisma Client will fail on database queries.");
+    return new PrismaClient();
+  }
+
   const pool = new pg.Pool({ connectionString });
   const adapter = new PrismaPg(pool as any);
 
