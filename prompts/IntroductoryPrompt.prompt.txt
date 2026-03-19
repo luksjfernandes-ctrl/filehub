@@ -1,0 +1,131 @@
+You are acting as a senior full-stack software engineer and architect. Your responsability is to deeply understand the product requirements, constraints, and engineering principles before generating any implementation, before generating any code.
+
+I am building a production-ready SaaS aplication named FileHub.
+
+FileHub allows any user to:
+
+1. Create an account
+2. Upload any type of digital file
+3. Generate a public link for each upload file
+4. Share that link  with anyone
+5. Allow anyone who visits the link to download the file easily
+
+This is a real SaaS, not a demo or toy project.
+
+Tech Stack (STRICT - DO NOT ADD ANYTHING)
+
+You must use only the following technologies and no more:
+
+1. Next.js 16 (App Router)
+2. TypeScript
+3. Tailwind CSS
+4. shadcn/ui
+5. Prisma
+6. PostgreSQL
+7. UploadThing (file uploads)
+8. Zod (input & form validation)
+9. Clerk (authentication)
+
+Do not introduce additional libraries, frameworks or tools.
+Do not suggest alternatives.
+That constraint is non-negotiable.
+
+Philosophy:
+
+Keep the project small and simples as possible.
+Do not let the scope grow beyond what is explicitly defined.
+Follow best practices for:
+1. Software engineering
+2. Web development
+3. Security
+4. Maintainability
+
+The app must be fully full-stack, including:
+
+Frontend
+Backend
+Database
+All implemented inside Next.js 16
+
+Engineering requeriments
+
+Use server actions correctly and idiomaticaly
+Use zod for:
+1. input validation
+2. form validation
+Database schema must be:
+High quality
+no more than 5 tools
+Always use shadcn/ui component for UI
+Always follow Next.js App Router best practices
+Code must be:
+1. Clean
+2. Readable
+3. Maintanable
+4. Broken into small, focused modules
+
+React & UX Guidelines
+
+If client-side data fetching is required:
+
+1. Use React 19 use ()
+2. Pass promises from parent components
+3. Use Suspense for loading states
+4. Avoid using traditional client-side fetching patterns (such as useEffect + fetch or "useFetch"-style hooks) as much as possible. 
+
+Every route must be:
+
+loading.tsx
+error.tsx
+
+Styling must be consistent across the app
+
+Color palette:
+
+1. Pure white
+2. Pure blue
+Any additional must be a variant of the two colors
+
+Scope Control (very important)
+
+Do not overwhelm me with features.
+These are the only features that exist on Filehub v1 - nothing more:
+
+1. Database (max 5 models)
+2. Landing page
+a. logo
+b. sign in button
+c. sign up button
+3. Authentication
+a. login page
+b. signup page
+4. User onboarding page
+5. Main App Layout
+a. navbar with two links only: 1. add a file 2. my files
+6. Add a file page
+a. upload button
+b. clicking upload opens a modal form
+c. modal allows uploading a file
+7. Post-upload flow - redirect user to my files page.
+8. My Files Page
+a. navbar
+b. list of uploaded files
+c. a FileCard component for each file.
+9. Public File Page
+a. public link page
+b. Anyone can visit it
+c. Anyone can download the file
+
+IMPORTANT!
+
+Do not generate any code or files yet.
+
+Your task for now is only:
+
+Understand the requeriments;
+Internalize the concepts;
+Build a correct mental model of the app;
+Prepare to work within these boundaries.
+
+Ask clarifying questions only if absolutely necessary.
+summarize your understading of the system.

@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// User model - represents authenticated users via Clerk
+model User {
+  id          String @id @default(cuid())
+  clerkUserId String @unique
+  email       String @unique
+  name        String
+  username    String
+  onboarded   Boolean @default(false)
+
+  files       File[]
+}
+
+// File model - represents uploaded files
+model File {
+  id            String @id @default(cuid())
+  title         String
+  description   String
+  coverImageURL String
+  fileURL       String
+  downloads     Int @default(0)
+  createdAt     DateTime @default(now())
+
+  userId String
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
