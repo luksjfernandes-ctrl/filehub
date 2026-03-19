@@ -9,6 +9,9 @@
     "lint": "eslint",
     "postinstall": "prisma generate"
   },
+  "overrides": {
+    "node-domexception": "1.0.0"
+  },
   "dependencies": {
     "@clerk/nextjs": "^7.0.5",
     "@prisma/adapter-pg": "^7.5.0",
