@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { ClerkProvider, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import "./globals.css";
@@ -39,7 +39,7 @@ export default function RootLayout({
               </Link>
               
               {/* Auth Buttons */}
-              <Show when="signed-out">
+              <SignedOut>
                 <div className="flex gap-2">
                   <Button variant="outline" asChild>
                     <Link href="/sign-in">Sign In</Link>
@@ -48,11 +48,11 @@ export default function RootLayout({
                     <Link href="/sign-up">Sign Up</Link>
                   </Button>
                 </div>
-              </Show>
+              </SignedOut>
               
-              <Show when="signed-in">
+              <SignedIn>
                 <UserButton />
-              </Show>
+              </SignedIn>
             </div>
           </header>
           {children}
